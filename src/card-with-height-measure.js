@@ -1,15 +1,15 @@
 import { AnimatePresence, motion } from "framer-motion";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
 import useMeasure from "react-use-measure";
 
-export function CardWithHeightRef() {
+export function CardWithHeightMeasure() {
   let [isActive, setIsActive] = useState(true);
   let [firstElementRef, { height }] = useMeasure();
-  let knownHeight = useRef();
+  let [knownHeight, setKnownHeight] = useState();
 
   useEffect(() => {
     if (height && isActive) {
-      knownHeight.current = height;
+      setKnownHeight(height);
     }
   }, [height, isActive]);
 
@@ -35,7 +35,7 @@ export function CardWithHeightRef() {
                   },
                   showing: {
                     opacity: 1,
-                    height: knownHeight.current ? knownHeight.current : "auto",
+                    height: knownHeight ? knownHeight : "auto",
                   },
                 }}
               >
@@ -56,7 +56,7 @@ export function CardWithHeightRef() {
                 variants={{
                   hiding: {
                     opacity: 0,
-                    height: knownHeight.current ? knownHeight.current : "auto",
+                    height: knownHeight ? knownHeight : "auto",
                   },
                   showing: {
                     opacity: 1,

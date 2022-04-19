@@ -1,5 +1,5 @@
 import { CardWithHeight } from "./card-with-height";
-import { CardWithHeightRef } from "./card-with-height-ref";
+import { CardWithHeightMeasure } from "./card-with-height-measure";
 
 function App() {
   return (
@@ -22,12 +22,12 @@ function App() {
 
       <div className="text-gray-700 max-w-xl mt-12">
         <p>
-          I was able to use a ref to track the initial height and animate to and
+          I was able to use state to track the initial height and animate to and
           from that value.
         </p>
       </div>
       <div className="mt-4">
-        <CardWithHeightRef />
+        <CardWithHeightMeasure />
       </div>
 
       <div className="text-gray-700 max-w-xl mt-12">
